@@ -15,11 +15,13 @@ def galvena():
     print("sveicināti kartiņu programmā!")
     while True:
         izveles=input("Izvēlaties, ko darīt: \n1.)pievienot kartiņu\n2.)mācīties no kartiņām\n3.)beigt programmu\n izvēle: ")
-        if izveles=="1":
-            pievienot_kartiti()
-        elif izveles=="2":
-            macities()
-        elif izveles=="3":
-            print("exit")
+        if izveles == "1":
+            #pievienot_kartiti()
+            pass
+        elif izveles == "2":
+            macities("fizika", "energija")
+        elif izveles == "3":
+            print("Programma beidzas!")
+            exit()
 
 galvena()

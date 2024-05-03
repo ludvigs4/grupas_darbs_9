@@ -18,10 +18,9 @@ def izdzest(prieksmets, tema, jautajums, atbilde):
     try:
         with open(f"{prieksmets}_{tema}.txt", "r", encoding="utf8") as file:
             rindas = file.readlines()
-            rindas[0].split(" - ")
         with open(f"{prieksmets}_{tema}.txt", "w", encoding="utf8") as file:
             for i in rindas:
-                if kopa != i:
+                if kopa != i.strip():
                     file.write(i)
     except FileNotFoundError:
         print("Šāda faila nav!💀💀💀")

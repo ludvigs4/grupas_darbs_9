@@ -31,8 +31,11 @@ def galvena():
     while True:
         izveles=input("Izvēlaties, ko darīt: \n1.)pievienot kartiņu\n2.)mācīties no kartiņām\n3.)dzēst kartīti\n izvēle: ")
         if izveles == "1":
-            #pievienot_kartiti()
-            pass
+            prieksmets=input("ievadiet mācību priekšmetu: ")
+            tema=input("ievadiet tēmu: ")
+            jautajums=input("ievadiet tēmas jautājumu: ")
+            atbilde=input("ievadiet jautājuma atbildi: ")
+            pievienot_kartiti(prieksmets,tema,jautajums,atbilde)
         elif izveles == "2":
             macities("fizika", "energija")
         elif izveles == "3":

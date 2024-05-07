@@ -18,7 +18,7 @@ def macities(prieksmets, tema):
     except FileNotFoundError:
         print("Jums nav failu vai nepareizi ievadīti dati!💀💀💀")
 
-def izdzest(prieksmets, tema, jautajums, atbilde):
+def izdzest(prieksmets, tema, jautajums, atbilde): #Funkcijas mērķis ir izdzēst kartīti no prieksmets_tema.txt faila, kuru lietotājs jau pirms tam pats ir izveidojis
     kopa = f"{jautajums} - {atbilde}"
     print(kopa)
     rindas = []

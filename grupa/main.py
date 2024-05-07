@@ -1,8 +1,8 @@
 import random
 
-def pievienot_kartiti(prieksmets,tema,info,atbilde):
-    with open(f"{prieksmets}_{tema}.txt", "a", encoding="utf8") as fails:
-        fails.write(f"{info} - {atbilde}")
+def pievienot_kartiti(prieksmets,tema,info,atbilde): #funkcija saņem 4 mainīgos, ar kuru palīdzību uztaisa failu, kurā glabāsies jautājums ar atbildi.
+    with open(f"{prieksmets}_{tema}.txt", "a", encoding="utf8") as fails: #atver failu, kurā rakstīs. Ja nav faila, tad to uztaisa.
+        fails.write(f"{info} - {atbilde}\n")
 
 def macities(prieksmets, tema): #izveido funkciju no, kuras varēs mācīties no kartītēm
     try:

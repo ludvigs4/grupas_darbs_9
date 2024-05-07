@@ -9,7 +9,7 @@ def macities(prieksmets, tema): #izveido funkciju no, kuras varēs mācīties no
         with open(f"{prieksmets}_{tema}.txt", "r", encoding="utf8") as file: #atver failu ar iedotā priekšmeta un tēmas nosaukumu
             rindas = file.readlines() #izlasa failu un ieraksta to sarakstā
             if len(rindas) > 0: #ja failā ir jautājumi
-                random_rinda = random.choice(rindas).strip().split(" - ") #izvēlas nejaušu rindu un sadala to uz divām daļām - jautājumu un atbildi
+                random_rinda = random.choice(rindas).strip().split(" - ") #izvēlas nejaušu rindu un sadala to divās daļās - par jautājumu un atbildi
                 print(random_rinda[0])
                 input("Spiediet enter lai parādītu atbildi!")
                 print("\t>" + random_rinda[1])

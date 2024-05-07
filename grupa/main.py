@@ -8,12 +8,15 @@ def macities(prieksmets, tema):
     try:
         with open(f"{prieksmets}_{tema}.txt", "r", encoding="utf8") as file:
             rindas = file.readlines()
-            random_rinda = random.choice(rindas).strip().split(" - ")
-            print(random_rinda[0])
-            input("Spiediet enter lai parādītu atbildi!")
-            print("\t>" + random_rinda[1])
+            if len(rindas) > 0:
+                random_rinda = random.choice(rindas).strip().split(" - ")
+                print(random_rinda[0])
+                input("Spiediet enter lai parādītu atbildi!")
+                print("\t>" + random_rinda[1])
+            else:
+                print("Šajā failā vairs nav datu!")
     except FileNotFoundError:
-        print("Šāda priekšmeta vai tēmas nav!💀💀💀")
+        print("Jums nav failu vai nepareizi ievadīti dati!💀💀💀")
 
 def izdzest(prieksmets, tema, jautajums, atbilde):
     kopa = f"{jautajums} - {atbilde}"

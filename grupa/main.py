@@ -11,9 +11,9 @@ def macities(prieksmets, tema):
             random_rinda = random.choice(rindas).strip().split(" - ")
             print(random_rinda[0])
             input("Spiediet enter lai parādītu atbildi!")
-            print(random_rinda[1])
+            print("\t>" + random_rinda[1])
     except FileNotFoundError:
-        print("Šāda faila nav!💀💀💀")
+        print("Šāda priekšmeta vai tēmas nav!💀💀💀")
 
 def izdzest(prieksmets, tema, jautajums, atbilde):
     kopa = f"{jautajums} - {atbilde}"
@@ -27,25 +27,33 @@ def izdzest(prieksmets, tema, jautajums, atbilde):
                 if kopa != i.strip():
                     file.write(i)
     except FileNotFoundError:
-        print("Šāda faila nav!💀💀💀")
+        print("Šāda priekšmeta vai tēmas nav!💀💀💀")
 
 def galvena():
-    print("sveicināti kartiņu programmā!")
+    print("Sveicināti kartiņu programmā!")
     while True:
-        izveles=input("Izvēlaties, ko darīt: \n1.)pievienot kartiņu\n2.)mācīties no kartiņām\n3.)dzēst kartīti\n izvēle: ")
+        izveles=input("\nIzvēlieties, ko darīt: \n1.)pievienot kartiņu\n2.)mācīties no kartītēm\n3.)dzēst kartīti\n'iziet' - iziet no programmas\n\nizvēle: ")
         if izveles == "1":
-            prieksmets=input("ievadiet mācību priekšmetu: ")
-            tema=input("ievadiet tēmu: ")
-            jautajums=input("ievadiet tēmas jautājumu: ")
-            atbilde=input("ievadiet jautājuma atbildi: ")
-            pievienot_kartiti(prieksmets,tema,jautajums,atbilde)
+            prieksmets = input("Ievadiet priekšmetu, kurā vēlaties pievienot kartīti: ")
+            tema = input("Ievadiet tēmu: ")
+            jaut = input("Ievadiet jautājumu: ")
+            atb = input("Ievadiet atbildi: ")
+            pievienot_kartiti(prieksmets, tema, jaut, atb)
+            pass
         elif izveles == "2":
-            macities("fizika", "energija")
+            prieksmets = input("Ievadiet priekšmetu: ")
+            tema = input("Ievadiet tēmu: ")
+            macities(prieksmets, tema)
         elif izveles == "3":
             prieksmets = input("Ievadiet priekšmetu no, kura vēlaties dzēst: ")
             tema = input("Ievadiet tēmu no, kuras vēlaties dzēst: ")
-            jaut = input("Ievadiet jautājumu, kura vēlaties dzēst: ")
-            atb = input("Ievadiet atbildi, kuru vēlaties dzēst: ")
+            jaut = input("Ievadiet jautājumu, kuru vēlaties dzēst: ")
+            atb = input("Ievadiet atbildi, kura ir pie jautājuma: ")
             izdzest(prieksmets, tema, jaut, atb)
+        elif izveles == "iziet":
+            print("Programma beidzas!💀")
+            exit()
+        else:
+            print("Izvēlieties derīgu opciju!")
 
 galvena()

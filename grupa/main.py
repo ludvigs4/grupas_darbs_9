@@ -4,18 +4,18 @@ def pievienot_kartiti(prieksmets,tema,info,atbilde):
     with open(f"{prieksmets}_{tema}.txt", "a", encoding="utf8") as fails:
         fails.write(f"{info} - {atbilde}")
 
-def macities(prieksmets, tema):
+def macities(prieksmets, tema): #izveido funkciju no, kuras varēs mācīties no kartītēm
     try:
-        with open(f"{prieksmets}_{tema}.txt", "r", encoding="utf8") as file:
-            rindas = file.readlines()
-            if len(rindas) > 0:
-                random_rinda = random.choice(rindas).strip().split(" - ")
+        with open(f"{prieksmets}_{tema}.txt", "r", encoding="utf8") as file: #atver failu ar iedotā priekšmeta un tēmas nosaukumu
+            rindas = file.readlines() #izlasa failu un ieraksta to sarakstā
+            if len(rindas) > 0: #ja failā ir jautājumi
+                random_rinda = random.choice(rindas).strip().split(" - ") #izvēlas nejaušu rindu un to sadala uz jautājumu un atbildi
                 print(random_rinda[0])
                 input("Spiediet enter lai parādītu atbildi!")
                 print("\t>" + random_rinda[1])
-            else:
+            else: #ja failā nav jautājumu
                 print("Šajā failā vairs nav datu!")
-    except FileNotFoundError:
+    except FileNotFoundError: #ja fails neeksistē vai nepareizi ievadīti faili
         print("Jums nav failu vai nepareizi ievadīti dati!💀💀💀")
 
 def izdzest(prieksmets, tema, jautajums, atbilde): #Funkcijas mērķis ir izdzēst kartīti no prieksmets_tema.txt faila, kuru lietotājs jau pirms tam pats ir izveidojis

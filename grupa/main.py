@@ -12,7 +12,7 @@ def macities(prieksmets, tema): #izveido funkciju no, kuras varēs mācīties no
                 random_rinda = random.choice(rindas).strip().split(" - ") #izvēlas nejaušu rindu un sadala to divās daļās - par jautājumu un atbildi
                 print("Jautājums\t>" + random_rinda[0])
                 input("Spiediet enter lai parādītu atbildi!")
-                print("atbilde\t>" + random_rinda[1])
+                print("atbilde\t\t>" + random_rinda[1])
             else: #ja failā nav jautājumu
                 print("Šajā failā vairs nav datu!")
     except FileNotFoundError: #ja fails neeksistē vai nepareizi ievadīti faili

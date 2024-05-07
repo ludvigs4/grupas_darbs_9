@@ -26,9 +26,9 @@ def izdzest(prieksmets, tema, jautajums, atbilde): #Funkcijas mērķis ir izdzē
             rindas = file.readlines() #sarakstā pievieno visas rindas
         with open(f"{prieksmets}_{tema}.txt", "w", encoding="utf8") as file: #atver failu rakstīšanas režīmā
             for i in rindas: #ciklē cauri visām rindām
-                if kopa != i.strip(): #ja izvēlētā
+                if kopa != i.strip(): #ja izvēlētā kartīte nav vienāda ar esošo kartīti, tad to ieraksta failā
                     file.write(i)
-    except FileNotFoundError:
+    except FileNotFoundError: #ja nepareizi ievadīti dati
         print("Šāda priekšmeta vai tēmas nav!💀💀💀")
 
 def galvena(): #izveido galveno funkciju

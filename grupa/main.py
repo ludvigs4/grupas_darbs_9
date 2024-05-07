@@ -1,5 +1,9 @@
 import random
 
+def pievienot_kartiti(prieksmets,tema,info,atbilde):
+    with open(f"{prieksmets}_{tema}.txt", "a", encoding="utf8") as fails:
+        fails.write(f"{info} - {atbilde}")
+
 def macities(prieksmets, tema):
     try:
         with open(f"{prieksmets}_{tema}.txt", "r", encoding="utf8") as file:

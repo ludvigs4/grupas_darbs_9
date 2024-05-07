@@ -32,7 +32,7 @@ def izdzest(prieksmets, tema, jautajums, atbilde): #Funkcijas mērķis ir izdzē
         print("Šāda priekšmeta vai tēmas nav!💀💀💀")
 
 def galvena(): #izveido galveno funkciju
-    print("Sveicināti kartiņu programmā!")
+    print("Sveicināti kartīšu programmā!")
     while True: #galvenais cikls, kurš iet kamēr tiek uzrakstīts "iziet"
         izveles=input("\nIzvēlieties, ko darīt: \n1.)pievienot kartīti\n2.)mācīties no kartītēm\n3.)dzēst kartīti\n'iziet' - iziet no programmas\n\nizvēle: ")
         if izveles == "1": #ja izvēlas opciju pievienot kartīti

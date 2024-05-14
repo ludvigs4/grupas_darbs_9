@@ -5,18 +5,23 @@ def pievienot_kartiti(prieksmets,tema,info,atbilde): #funkcija saņem 4 mainīgo
         fails.write(f"{info} - {atbilde}\n")
 
 def macities(prieksmets, tema): #izveido funkciju no, kuras varēs mācīties no kartītēm
-    try:
-        with open(f"{prieksmets}_{tema}.txt", "r", encoding="utf8") as file: #atver failu ar iedotā priekšmeta un tēmas nosaukumu
-            rindas = file.readlines() #izlasa failu un ieraksta to sarakstā
-            if len(rindas) > 0: #ja failā ir jautājumi
-                random_rinda = random.choice(rindas).strip().split(" - ") #izvēlas nejaušu rindu un sadala to divās daļās - par jautājumu un atbildi
-                print("Jautājums\t> " + random_rinda[0])
-                input("Spiediet enter lai parādītu atbildi!")
-                print("atbilde\t\t> " + random_rinda[1])
-            else: #ja failā nav jautājumu
-                print("Šajā failā vairs nav datu!")
-    except FileNotFoundError: #ja fails neeksistē vai nepareizi ievadīti faili
-        print("Jums nav failu vai nepareizi ievadīti dati!💀💀💀")
+    while True:
+        try:
+            with open(f"{prieksmets}_{tema}.txt", "r", encoding="utf8") as file: #atver failu ar iedotā priekšmeta un tēmas nosaukumu
+                rindas = file.readlines() #izlasa failu un ieraksta to sarakstā
+                if len(rindas) > 0: #ja failā ir jautājumi
+                    random_rinda = random.choice(rindas).strip().split(" - ") #izvēlas nejaušu rindu un sadala to divās daļās - par jautājumu un atbildi
+                    print("Jautājums\t>" + random_rinda[0])
+                    input("Spiediet enter lai parādītu atbildi!")
+                    print("atbilde\t\t>" + random_rinda[1])
+                else: #ja failā nav jautājumu
+                    print("Pie jūsu izvēlētās tēmas vēl nav kartītes!")
+        except FileNotFoundError: #ja fails neeksistē vai nepareizi ievadīti faili
+            print("Jums nav failu vai nepareizi ievadīti dati!💀💀💀")
+        
+        turpinat = input("\nVai jūs vēlaties turpināt?(j/n)")
+        if turpinat == "n":
+            break
 
 def izdzest(prieksmets, tema, jautajums, atbilde): #Funkcijas mērķis ir izdzēst kartīti no prieksmets_tema.txt faila, kuru lietotājs jau pirms tam pats ir izveidojis
     kopa = f"{jautajums} - {atbilde}" #izveido mainīgo, kurš satur jautājumu un atbildi
@@ -28,6 +33,11 @@ def izdzest(prieksmets, tema, jautajums, atbilde): #Funkcijas mērķis ir izdzē
             for i in rindas: #ciklē cauri visām rindām
                 if kopa != i.strip(): #ja izvēlētā kartīte nav vienāda ar esošo kartīti, tad to ieraksta failā
                     file.write(i)
+        with open(f"{prieksmets}_{tema}.txt", "r", encoding="utf8") as file: #atver failu lasīšanas režīmā
+            if rindas == file.readlines():
+                print("Nav šāda jautājuma vai atbildes!💀💀💀")
+            else:
+                print("Kartīte ir izdzēsta!")
     except FileNotFoundError: #ja nepareizi ievadīti dati
         print("Šāda priekšmeta vai tēmas nav!💀💀💀")
 
